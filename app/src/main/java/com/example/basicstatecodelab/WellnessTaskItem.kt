@@ -13,6 +13,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun WellnessScreen(modifier: Modifier = Modifier) {
-    WaterCounter(modifier)
+fun WellnessTaskItem(
+    taskName: String,
+    onClose: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
+        Text(
+            modifier = Modifier.weight(1f).padding(start = 16.dp),
+            text = taskName
+        )
+        IconButton(onClick = onClose) {
+            Icon(Icons.Filled.Close, contentDescription = "Close")
+        }
+    }
 }
